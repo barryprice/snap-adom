@@ -1,0 +1,75 @@
+name: adom
+base: core18
+version: 3.3.3
+summary: An epic roguelike & RPG game - graphical version
+description: |
+  Ancient Domains Of Mystery (ADOM) is an epic roguelike & RPG game,
+  customizable to a wide variety of playing styles. Dive into mysteries created
+  in more than a quarter century of development, explore a huge world and
+  become a champion of order or chaos. Save the world of Ancardia or rule it
+  with an iron fist... or chaos tentacle!
+
+grade: stable
+confinement: strict
+compression: lzo
+
+architectures:
+  - build-on: amd64
+    run-on: amd64
+
+apps:
+  adom:
+    extensions: [gnome-3-34]
+    command: desktop-launch $SNAP/wrapper.sh $SNAP/adom
+    plugs:
+      - audio-playback
+      - desktop
+      - network
+      - opengl
+      - unity7
+      - wayland
+      - x11
+
+parts:
+  adom:
+    plugin: dump
+    # https://www.indiedb.com/games/adom-ancient-domains-of-mystery/downloads/adom-333-release-101-ubuntu-1804-lts-64-bit
+    source: https://www.indiedb.com/downloads/mirror/173928/122/e6b40f3b0c3eef545abf209517e9a686
+    source-type: tar
+    stage-packages:
+    - libasn1-8-heimdal
+    - libasound2
+    - libfluidsynth1
+    - libfreetype6
+    - libgl1
+    - libgssapi3-heimdal
+    - libhcrypto4-heimdal
+    - libheimbase1-heimdal
+    - libheimntlm0-heimdal
+    - libhx509-5-heimdal
+    - libkrb5-26-heimdal
+    - libldap-2.4-2
+    - libmad0
+    - libmodplug1
+    - libnghttp2-14
+    - libpng16-16
+    - libpsl5
+    - libroken18-heimdal
+    - librtmp1
+    - libsasl2-2
+    - libsndio6.1
+    - libtiff5
+    - libwayland-client0
+    - libwayland-cursor0
+    - libwayland-egl1-mesa
+    - libwebp6
+    - libwind0-heimdal
+    - libxcursor1
+    - libxi6
+    - libxinerama1
+    - libxkbcommon0
+    - libxrandr2
+    - libxss1
+  overlay:
+    plugin: dump
+    source: overlay
