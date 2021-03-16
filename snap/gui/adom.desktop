@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=ADOM
+Exec=adom
+Icon=${SNAP}/gfx/adom/icon/icon_128x128.png
+Type=Application
+Terminal=false
+Categories=Game
