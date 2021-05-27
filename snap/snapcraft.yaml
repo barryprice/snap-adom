@@ -34,7 +34,7 @@ parts:
   adom:
     plugin: dump
     # https://www.indiedb.com/games/adom-ancient-domains-of-mystery/downloads/adom-333-release-101-ubuntu-1804-lts-64-bit
-    source: https://www.indiedb.com/downloads/mirror/173928/122/f8051acc2581851b5d713a2bcfeb5877
+    source: https://www.indiedb.com/downloads/mirror/173928/124/6b31454ffd2ee84a8ad130246a69ec8b
     source-checksum: sha512/3e13286b9fee628a83f940e5be9c5942fb1b8568aa7481878d764680d76f2cc56cca6d8eb149ae48b725493182e0b2092dbc07f2cd993f9c5089bd23027a1c13
     source-type: tar
     stage-packages:
