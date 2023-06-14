@@ -38,7 +38,7 @@ parts:
     override-pull: |
       tarball="adom-333-release-101-ubuntu-1804-lts-64-bit.tgz"
       indiedb_url="https://www.indiedb.com/downloads/start/173928"
-      curl -L -o ${tarball?} $(curl -Ls ${indiedb_url?} | grep -Po 'window.location.href="\K[^"]*')
+      curl -L -o ${tarball?} $(curl -Ls ${indiedb_url?} | htmlq -wp -b https://www.indiedb.com/ -a href a | head -1)
       tar --strip-components 1 -xf adom-333-release-101-ubuntu-1804-lts-64-bit.tgz -C $SNAPCRAFT_PART_SRC/
       rm -v adom-333-release-101-ubuntu-1804-lts-64-bit.tgz
     # source still needs to be defined, but is not used as the override above takes precendence
@@ -47,8 +47,9 @@ parts:
     source-type: tar
     build-packages:
     - curl
-    - grep
     - tar
+    build-snaps:
+    - htmlq
     stage-packages:
     - libasn1-8-heimdal
     - libasound2
